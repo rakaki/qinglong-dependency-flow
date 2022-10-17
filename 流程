@@ -1,0 +1,240 @@
+
+    搜索镜象：
+
+docker search qinglong
+
+NAME DESCRIPTION STARS OFFICIAL AUTOMATED
+whyour/qinglong A timed task management panel that supports … 655
+drewnb/qinglong 时间管理器，备份青龙 58
+
+    拉取镜象：
+
+docker pull whyour/qinglong
+
+Using default tag: latest
+latest: Pulling from whyour/qinglong
+9b18e9b68314: Pull complete
+588f86efd8c2: Pull complete
+11f7f1e58a1b: Pull complete
+d5cdcf80b8d9: Pull complete
+83ebb02bb867: Pull complete
+9d0d93307b4b: Pull complete
+ba0280e6d37b: Pull complete
+Digest: sha256:460faf6fa0933aaef65e642e218b7aa5de3b32ef27d605de932e5fdf08daf6f5
+Status: Downloaded newer image for whyour/qinglong:latest
+
+    查看容器ID:
+
+docker images
+
+REPOSITORY TAG IMAGE ID CREATED SIZE
+whyour/qinglong latest 4f8150f97362 4 days ago 322MB
+
+    启动容器：
+
+docker run -itd 4f8150f97362 --name qinglong -d -p 40001:40001 /bin/bash
+
+24a8beeefcc7876db88ed131d580f8f24b5a5a40e118c4dd50ed11f2cd6da737
+docker ps
+
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+24a8beeefcc7 4f8150f97362 "./docker/docker-ent…" 5 seconds ago Up 4 seconds lucid_curran
+
+    进入容器：
+
+docker exec -it 24a8beeefcc7 /bin/bash
+
+root@24a8beeefcc7:/ql $ ls
+LICENSE README.md cli docker nodemon.json pnpm-lock.yaml sample src tsconfig.back.json typings.d.ts
+README-en.md back data node_modules package.json public shell static tsconfig.json
+
+    下载脚本：
+    $ wget https://raw.githubusercontent.com/FlechazoPh/QLDependency/main/Shell/QLOneKeyDependency.sh
+
+    执行脚本：
+    $ bash QLOneKeyDependency.sh
+
+安装依赖...
+
+安装依赖需要时间，请耐心等待!
+
+QLOneKeyDependency.sh: line 40: 当前node版本(如果没有node，请自行安装): : command not found
+v16.16.0
+
+QLOneKeyDependency.sh: line 44: 当前npm版本(如果没有npm，请自行安装): : command not found
+8.10.0
+Nothing to stop. No server is running for the store at /root/.local/share/pnpm/store/v3
+The location of the currently running pnpm differs from the location where pnpm will be installed
+Current pnpm location: /usr/local/bin
+Target location: /root/.local/share/pnpm
+
+ ERR_PNPM_REGISTRIES_MISMATCH  This modules directory was created using the following registries configuration: {"default":"https://registry.npmjs.org/"}. The current configuration is {"default":"https://registry.npmmirror.com/"}. To recreate the modules directory using the new settings, run "pnpm install".
+Recreating /root/.local/share/pnpm/global/5/node_modules
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+/root/.local/share/pnpm/global/5:
+
+    pm2 5.2.0
+    ts-node 10.9.1
+    tslib 2.4.0
+    typescript 4.8.3
+
+added 198 packages in 41s
+
+11 packages are looking for funding
+run npm fund for details
+Downloading registry.npmmirror.com/typescript/4.8.3: 11.9 MB/11.9 MB, done
+ WARN  deprecated uuid@3.4.0: Please upgrade to version 7 or higher. Older versions may use Math.random() in certain circumstances, which is known to be problematic. See https://v8.dev/blog/math-random for details.
+Packages: +3
++++
+Progress: resolved 200, reused 18, downloaded 181, added 3, done
+ WARN  js-base64 has no binaries
+ WARN  silly-datetime has no binaries
+
+/root/.local/share/pnpm/global/5:
+
+    js-base64 3.7.2
+    qrcode-terminal 0.12.0
+    silly-datetime 0.1.2
+
+ WARN  Issues with peer dependencies found
+.
+└─┬ ts-node 10.9.1
+└── ✕ missing peer @types/node@""
+Peer dependencies that should be installed:
+@types/node@""
+Looking in indexes: https://pypi.doubanio.com/simple/
+Collecting requests
+Downloading https://pypi.doubanio.com/packages/ca/91/6d9b8ccacd0412c08820f72cebaa4f0c0441b5cda699c90f618b6f8a1b42/requests-2.28.1-py3-none-any.whl (62 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 225.1 kB/s eta 0:00:00
+Collecting certifi>=2017.4.17
+Downloading https://pypi.doubanio.com/packages/ca/87/bf1fab5dc5d8ecd30fab4ecb6114881b5cc3859e5d4a6c9b2c48f7d70276/certifi-2022.6.15.2-py3-none-any.whl (160 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.4/160.4 kB 537.8 kB/s eta 0:00:00
+Collecting urllib3<1.27,>=1.21.1
+Downloading https://pypi.doubanio.com/packages/6f/de/5be2e3eed8426f871b170663333a0f627fc2924cc386cd41be065e7ea870/urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.4/140.4 kB 3.2 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+Downloading https://pypi.doubanio.com/packages/fc/34/3030de6f1370931b9dbb4dad48f6ab1015ab1d32447850b9fc94e60097be/idna-3.4-py3-none-any.whl (61 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 1.3 MB/s eta 0:00:00
+Collecting charset-normalizer<3,>=2
+Downloading https://pypi.doubanio.com/packages/db/51/a507c856293ab05cdc1db77ff4bc1268ddd39f29e7dc4919aa497f0adbec/charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests
+Successfully installed certifi-2022.6.15.2 charset-normalizer-2.1.1 idna-3.4 requests-2.28.1 urllib3-1.26.12
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+QLOneKeyDependency.sh: line 59: cd: /ql/scripts/: No such file or directory
+fetch https://mirrors.aliyun.com/alpine/v3.16/main/aarch64/APKINDEX.tar.gz
+fetch https://mirrors.aliyun.com/alpine/v3.16/community/aarch64/APKINDEX.tar.gz
+(1/94) Installing binutils (2.38-r3)
+(2/94) Installing libmagic (5.41-r0)
+(3/94) Installing file (5.41-r0)
+(4/94) Installing libgomp (11.2.1_git20220219-r2)
+(5/94) Installing libatomic (11.2.1_git20220219-r2)
+(6/94) Installing gmp (6.2.1-r2)
+(7/94) Installing isl22 (0.22-r0)
+(8/94) Installing mpfr4 (4.1.0-r0)
+(9/94) Installing mpc1 (1.2.1-r0)
+(10/94) Installing gcc (11.2.1_git20220219-r2)
+(11/94) Installing musl-dev (1.2.3-r0)
+(12/94) Installing libc-dev (0.7.2-r3)
+(13/94) Installing g++ (11.2.1_git20220219-r2)
+(14/94) Installing make (4.3-r0)
+(15/94) Installing fortify-headers (1.1-r1)
+(16/94) Installing patch (2.7.6-r7)
+(17/94) Installing build-base (0.5-r3)
+(18/94) Installing cairo-tools (1.17.4-r2)
+(19/94) Installing libpng (1.6.37-r1)
+(20/94) Installing freetype (2.12.1-r0)
+(21/94) Installing fontconfig (2.14.0-r0)
+(22/94) Installing pkgconf (1.8.0-r1)
+(23/94) Installing expat-dev (2.4.8-r0)
+(24/94) Installing brotli-dev (1.0.9-r6)
+(25/94) Installing zlib-dev (1.2.12-r3)
+(26/94) Installing libpng-dev (1.6.37-r1)
+(27/94) Installing freetype-dev (2.12.1-r0)
+(28/94) Installing fontconfig-dev (2.14.0-r0)
+(29/94) Installing libxau (1.0.9-r0)
+(30/94) Installing xorgproto (2022.1-r0)
+(31/94) Installing libxau-dev (1.0.9-r0)
+(32/94) Installing libxdmcp (1.1.3-r0)
+(33/94) Installing libxcb (1.15-r0)
+(34/94) Installing libx11 (1.8-r0)
+(35/94) Installing libxext (1.3.4-r0)
+(36/94) Installing xcb-proto (1.15-r0)
+(37/94) Installing libxdmcp-dev (1.1.3-r0)
+(38/94) Installing libxcb-dev (1.15-r0)
+(39/94) Installing xtrans (1.4.0-r1)
+(40/94) Installing libx11-dev (1.8-r0)
+(41/94) Installing libxext-dev (1.3.4-r0)
+(42/94) Installing libxrender (0.9.10-r3)
+(43/94) Installing libxrender-dev (0.9.10-r3)
+(44/94) Installing pixman (0.40.0-r3)
+(45/94) Installing pixman-dev (0.40.0-r3)
+(46/94) Installing util-macros (1.19.3-r0)
+(47/94) Installing xcb-util (0.4.0-r3)
+(48/94) Installing xcb-util-dev (0.4.0-r3)
+(49/94) Installing cairo (1.17.4-r2)
+(50/94) Installing libblkid (2.38-r1)
+(51/94) Installing libmount (2.38-r1)
+(52/94) Installing glib (2.72.1-r0)
+(53/94) Installing cairo-gobject (1.17.4-r2)
+(54/94) Installing mpdecimal (2.5.1-r1)
+(55/94) Installing python3 (3.10.5-r0)
+(56/94) Installing gettext-asprintf (0.21-r2)
+(57/94) Installing gettext-libs (0.21-r2)
+(58/94) Installing libxml2 (2.9.14-r1)
+(59/94) Installing gettext (0.21-r2)
+(60/94) Installing gettext-dev (0.21-r2)
+(61/94) Installing bzip2-dev (1.0.8-r1)
+(62/94) Installing libxml2-utils (2.9.14-r1)
+(63/94) Installing libgpg-error (1.45-r0)
+(64/94) Installing libgcrypt (1.10.1-r0)
+(65/94) Installing libxslt (1.1.35-r0)
+(66/94) Installing docbook-xml (4.5-r6)
+Executing docbook-xml-4.5-r6.post-install
+(67/94) Installing docbook-xsl (1.79.2-r4)
+Executing docbook-xsl-1.79.2-r4.post-install
+(68/94) Installing linux-headers (5.16.7-r1)
+(69/94) Installing libffi-dev (3.4.2-r1)
+(70/94) Installing libpcre16 (8.45-r2)
+(71/94) Installing libpcre32 (8.45-r2)
+(72/94) Installing libpcrecpp (8.45-r2)
+(73/94) Installing pcre-dev (8.45-r2)
+(74/94) Installing libfdisk (2.38-r1)
+(75/94) Installing libsmartcols (2.38-r1)
+(76/94) Installing util-linux-dev (2.38-r1)
+(77/94) Installing glib-dev (2.72.1-r0)
+(78/94) Installing cairo-dev (1.17.4-r2)
+(79/94) Installing giflib (5.2.1-r0)
+(80/94) Installing giflib-dev (5.2.1-r0)
+(81/94) Installing libxft (2.3.4-r0)
+(82/94) Installing graphite2 (1.3.14-r1)
+(83/94) Installing harfbuzz (4.3.0-r0)
+(84/94) Installing fribidi (1.0.12-r0)
+(85/94) Installing pango (1.50.7-r0)
+(86/94) Installing pango-tools (1.50.7-r0)
+(87/94) Installing fribidi-dev (1.0.12-r0)
+(88/94) Installing harfbuzz-icu (4.3.0-r0)
+(89/94) Installing graphite2-dev (1.3.14-r1)
+(90/94) Installing icu (71.1-r2)
+(91/94) Installing icu-dev (71.1-r2)
+(92/94) Installing harfbuzz-dev (4.3.0-r0)
+(93/94) Installing libxft-dev (2.3.4-r0)
+(94/94) Installing pango-dev (1.50.7-r0)
+Executing busybox-1.35.0-r17.trigger
+Executing glib-2.72.1-r0.trigger
+No schema files found: doing nothing.
+OK: 443 MiB in 173 packages
+QLOneKeyDependency.sh: line 61: cd: scripts: No such file or directory
+fetch https://mirrors.aliyun.com/alpine/v3.16/main/aarch64/APKINDEX.tar.gz
+fetch https://mirrors.aliyun.com/alpine/v3.16/community/aarch64/APKINDEX.tar.gz
+(1/4) Installing libjpeg-turbo (2.1.3-r1)
+(2/4) Installing libjpeg-turbo-dev (2.1.3-r1)
+(3/4) Installing jpeg-dev (9d-r1)
+(4/4) Installing python3-dev (3.10.5-r0)
+Executing busybox-1.35.0-r17.trigger
+OK: 493 MiB in 177 packages
+
+依赖安装完毕...建议重启 Docker
+
+有任何问题，请在此仓库提交Issue： https://github.com/FlechazoPh/QLDependency
